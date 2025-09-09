@@ -1,22 +1,20 @@
-# This file generates the GitHub Actions matrix
-# For simple board + shield combinations, add them
-# to the top level board and shield arrays, for more
-# control, add individual board + shield combinations to
-# the `include` property, e.g:
-#
-# board: [ "nice_nano_v2" ]
-# shield: [ "corne_left", "corne_right" ]
-# include:
-#   - board: bdn9_rev2
-#   - board: nice_nano_v2
-#     shield: reviung41
-#
----
 include:
+  # This is the CENTRAL device (the dongle)
+  - board: nice_nano_v2
+    shield: sofle_dongle
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
+
+  # This is a PERIPHERAL device (the left half)
   - board: nice_nano_v2
     shield: sofle_left
     snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+
+  # This is a PERIPHERAL device (the right half)
   - board: nice_nano_v2
     shield: sofle_right
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+  
+  # This is a utility firmware to reset settings
   - board: nice_nano_v2
     shield: settings_reset
