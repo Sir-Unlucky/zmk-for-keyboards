@@ -6,7 +6,8 @@
     chosen {
         zephyr,display = &oled;
         zmk,kscan = &kscan0;
-	    mk,physical-layout = &layout_0;
+        zmk,physical-layout = &layout_0;
+        zmk,matrix_transform = &default_transform;
     };
 
     default_transform: keymap_transform_0 {

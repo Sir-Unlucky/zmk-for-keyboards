@@ -1,4 +1,4 @@
-if SHIELD_MY_KEYBOARD_DONGLE
+if SHIELD_SOFLE_DONGLE
 
 # Max 16 characters in keyboard name
 config ZMK_KEYBOARD_NAME
