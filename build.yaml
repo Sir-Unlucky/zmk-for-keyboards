@@ -18,5 +18,3 @@ include:
   # This is a utility firmware to reset settings
   - board: nice_nano_v2
     shield: settings_reset
-
-# pls do a thing!
